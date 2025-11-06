@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic); */
 
 /* =========================================
    CSS RESET
@@ -11,7 +12,7 @@
     text-decoration: none;
     border: none;
     outline: none;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Roboto", 'Poppins', sans-serif;
 }
 
 /* =========================================
@@ -533,6 +534,12 @@ body.light-mode .about {
     margin-top: 2rem;
 }
 
+.about-content h4 {
+    font-size: 3rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
 .about-content ul {
     list-style: none;
     padding-left: 0;
@@ -598,7 +605,8 @@ body.light-mode .heading {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--gradient-primary);
+    /* background: var(--gradient-primary); */
+    background: white;
     height: 600px;
     border-radius: 3rem;
     cursor: pointer;
@@ -628,6 +636,29 @@ body.light-mode .services-box:hover {
     justify-content: center;
     align-items: center;
     padding: 5rem;
+}
+
+.services-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.services-info .list_items {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: rgba(15, 23, 42, 0.9);
+    margin-bottom: 1.5rem;
+    padding-left: 2.5rem;
+    position: relative;
+    text-align: left;
+}
+
+.services-info .list_items::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--color-mint-dark);
+    font-size: 2rem;
 }
 
 .services-info h4 {
@@ -668,6 +699,7 @@ body.light-mode .services-box:hover .services-info p {
     object-fit: cover;
     border-radius: 2rem;
     transition: transform 0.3s ease;
+    margin-top: 1.5rem;
     margin-bottom: 2rem;
 }
 
@@ -803,11 +835,36 @@ body.light-mode .project-card {
     border-color: var(--color-accent);
 }
 
-.project-card img {
-    max-width: 300px;
-    border-radius: 2em;
+.project-card .img_box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+}
+
+/* Two images side-by-side, each taking ~50% of the box */
+.project-card .img_box img {
+    width: calc(20% - 0.75rem);
+    max-width: 50%;
+    height: auto;
     object-fit: cover;
+    border-radius: 1.5rem;
     transition: transform 0.3s ease;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 768px) {
+    .project-card .img_box {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .project-card .img_box img {
+        width: 100%;
+    }
 }
 
 .project-card:hover img {
