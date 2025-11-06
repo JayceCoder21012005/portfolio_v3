@@ -401,7 +401,7 @@ projectCards.forEach(card => {
  * Cycles through different job titles
  */
 const createTypingEffect = () => {
-    const heroSubtitle = document.querySelector('.hero-subtitle');
+    const heroSubtitle = document.querySelector('.gradient-text');
     if (!heroSubtitle) return;
     
     const titles = [
@@ -447,6 +447,48 @@ const createTypingEffect = () => {
 
 // Uncomment to enable typing effect
 // createTypingEffect();
+
+/* =========================================
+   ROTATING WORDS - JS FALLBACK
+   ========================================= */
+
+/**
+ * JS fallback for rotating words — updates element textContent and applies gradient.
+ * This runs in browsers that don't support changing pseudo-element content via keyframes.
+ */
+// const initRotatingWords = () => {
+//     const el = document.getElementById('rotatingRole');
+//     if (!el) return;
+
+//     const words = ['Developer', 'Software Engineer', 'Leetcoder', 'Script Writer'];
+//     let idx = 0;
+
+//     // Mark that JS is active so CSS can apply gradient on the element itself
+//     el.classList.add('js-active');
+//     el.classList.add('rotating-words');
+
+//     // Apply gradient styling directly to element so textContent shows with gradient
+//     el.style.background = 'var(--gradient-primary)';
+//     el.style.webkitBackgroundClip = 'text';
+//     el.style.backgroundClip = 'text';
+//     el.style.webkitTextFillColor = 'transparent';
+//     el.style.color = 'transparent';
+
+//     // Accessibility fallback: keep aria-live text updated
+//     el.setAttribute('aria-live', 'polite');
+
+//     // Initial text
+//     el.textContent = el.dataset.fallback || words[0];
+
+//     // Cycle words every 2s (adjust as desired)
+//     setInterval(() => {
+//         idx = (idx + 1) % words.length;
+//         el.textContent = words[idx];
+//     }, 2000);
+// };
+
+// Run rotating words on load
+window.addEventListener('load', initRotatingWords);
 
 /* =========================================
    PARALLAX EFFECT
